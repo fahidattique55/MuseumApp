@@ -22,6 +22,6 @@ enum Endpoint: URLDirectable {
             url = "objects/[\(id)]"
             break
         }
-        return NetworkManager.shared.baseURL + "/" + url
+        return NetworkManager.baseURL + "/" + url
     }
 }

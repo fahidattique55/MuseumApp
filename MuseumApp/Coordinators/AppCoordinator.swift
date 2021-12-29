@@ -24,7 +24,10 @@ class AppCoordinator: CoordinatorType {
     func getTransitionData(_ transition: Transition) -> TransitionData {
         switch transition {
         case .searchObject:
-            let searchObjectsVC = Story.searchObject.loadViewController(type: SearchObjectsViewController.self)
+            let apiService = MuseumObjectsAPIService(manager: NetworkManager.default)
+            let viewModel = SearchObjectsViewModel(apiService: apiService)
+            var searchObjectsVC = Story.searchObject.loadViewController(type: SearchObjectsViewController.self)
+            searchObjectsVC.bind(to: viewModel)
             return TransitionData(controller: searchObjectsVC, type: .rootWindow)
         }
     }

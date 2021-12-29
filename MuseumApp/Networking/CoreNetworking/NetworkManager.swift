@@ -11,16 +11,11 @@ import Alamofire
 typealias APIResultType = (APIResult<Data,Error>) -> Void
 
 protocol Requestable {
-    var baseURL: String { get }
+    static var baseURL: String { get }
     func request(api: API, result: @escaping APIResultType) -> DataRequest?
 }
 
-class NetworkManager: Requestable {
-    
-    var baseURL: String {
-      return "https://collectionapi.metmuseum.org/public/collection/v1"
-    }
-    
+extension Requestable {
     func request(api: API, result: @escaping APIResultType) -> DataRequest? {
         let request = AF.request(api.endPoint.urlString, method: api.method, parameters: api.parameters, encoding: api.encoding, headers: api.authorizedUserHeaders())
         request.responseData { response in
@@ -32,7 +27,6 @@ class NetworkManager: Requestable {
                 result(.failure(error))
             }
         }
-        
         request.responseString { response in
             print("❤️💚❤️")
             print("URL:")
@@ -45,4 +39,10 @@ class NetworkManager: Requestable {
         }
         return request
     }
+}
+
+class NetworkManager: Requestable {
+    
+    static var baseURL = "https://collectionapi.metmuseum.org/public/collection/v1"
+    static var `default` = NetworkManager()
 }

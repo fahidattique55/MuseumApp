@@ -15,13 +15,50 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-Uo-j36">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="9yS-Qf-FRx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" placeholder="Search here..." translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ny-RAE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            <scopeButtonTitles>
+                                                <string>Title</string>
+                                                <string>Title</string>
+                                            </scopeButtonTitles>
+                                        </searchBar>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="dlR-Ny-RAE" secondAttribute="trailing" id="0CR-wE-DIX"/>
+                                        <constraint firstItem="dlR-Ny-RAE" firstAttribute="leading" secondItem="9yS-Qf-FRx" secondAttribute="leading" id="a9K-AL-KtM"/>
+                                        <constraint firstAttribute="bottom" secondItem="dlR-Ny-RAE" secondAttribute="bottom" id="atE-hp-tq8"/>
+                                        <constraint firstItem="dlR-Ny-RAE" firstAttribute="top" secondItem="9yS-Qf-FRx" secondAttribute="top" id="gG4-lW-WNy"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="LrL-Uo-j36" secondAttribute="bottom" id="7qx-Vd-UNU"/>
+                            <constraint firstItem="LrL-Uo-j36" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="TND-KC-oLH"/>
+                            <constraint firstItem="LrL-Uo-j36" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="adr-gL-hBk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LrL-Uo-j36" secondAttribute="trailing" id="nzD-4f-fBc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="dlR-Ny-RAE" id="nLF-te-5cM"/>
+                        <outlet property="searchTableView" destination="LrL-Uo-j36" id="QTt-2c-ohI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="80"/>
+            <point key="canvasLocation" x="2.8985507246376816" y="79.6875"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,7 @@ import Foundation
 
 struct Measurement: Codable {
     var elementName: String
-    var elementDescription: String?,
+    var elementDescription: String?
     var elementMeasurements: ElementMeasurement
 }
 

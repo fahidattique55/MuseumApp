@@ -23,7 +23,7 @@ extension LocalJsonFileReadable {
 }
 
 class MockNetworkManager: Requestable, LocalJsonFileReadable {
-    var baseURL: String { return "Mocking" }
+    static var baseURL: String { return "Mocking" }
     func request(api: API, result: @escaping APIResultType) -> DataRequest? {
         let jsonFileName = api.endPoint.mockFileName
         if let data = getData(jsonFileName: jsonFileName) {
