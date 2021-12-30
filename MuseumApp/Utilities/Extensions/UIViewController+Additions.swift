@@ -7,10 +7,11 @@
 
 import Foundation
 import UIKit
+import NVActivityIndicatorView
 
 extension UIViewController {
 
-    class func topViewController(_ base: UIViewController? = UIApplication.shared.windows.first!.rootViewController) -> UIViewController? {
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow!.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
@@ -24,5 +25,20 @@ extension UIViewController {
         }
         return base
     }
+    
+    func endEditing() {
+        view.endEditing(true)
+    }
 }
 
+extension UIViewController: NVActivityIndicatorViewable {
+    
+    func showHUD(_ message: String = "")  {
+        let size = CGSize(width: 65, height: 65)
+        startAnimating(size, message: "", messageFont: UIFont.systemFont(ofSize: 17), type: NVActivityIndicatorType.ballRotateChase, color: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.4), fadeInAnimation: nil)
+    }
+
+    func hideHUD()  {
+        stopAnimating(nil)
+    }
+}

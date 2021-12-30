@@ -31,9 +31,12 @@ class SearchObjectsViewController: BaseViewController, BindableType {
     
     override func configureView() {
         super.configureView()
+        self.title = "Search Museum Arts"
         searchTableView.registerNib(from: SearchResultTableViewCell.self)
         searchTableView.estimatedRowHeight = 44
         searchTableView.rowHeight = UITableView.automaticDimension
+        searchTableView.emptyDataSetSource = viewModel
+        searchTableView.emptyDataSetDelegate = viewModel
     }
     
     func bindViewModel() {
@@ -41,14 +44,17 @@ class SearchObjectsViewController: BaseViewController, BindableType {
         // Bind searchbar query text
         searchBar.rx.text
             .orEmpty
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance) // Wait 0.5 for changes.
+            .debounce(.milliseconds(700), scheduler: MainScheduler.instance) // Wait for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
-            .filter { !$0.isEmpty && $0.count > 3 }
             .subscribe(onNext: { query in
                 self.viewModel.inputs.searchObjects(searchText: query)
             }).disposed(by: disposeBag)
 
-
+        searchBar.searchTextField.rx
+            .controlEvent([.editingDidEndOnExit]).subscribe { _ in
+                self.endEditing()
+            }.disposed(by: disposeBag)
+        
         // Bind didSelect of tableview
         searchTableView.rx.modelSelected(Int.self)
             .subscribe(onNext: { [weak self] model in
@@ -62,6 +68,14 @@ class SearchObjectsViewController: BaseViewController, BindableType {
                 cell.objectIDLabel.text = "\(element)"
         }.disposed(by: disposeBag)
             
+        viewModel.outputs.objectDetails
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] artObject in
+                guard let self = self else { return }
+                let appCoordinator = AppCoordinator(with: self.navigationController)
+                appCoordinator.performTransition(.objectDetails(artObject))
+            }).disposed(by: disposeBag)
+
         searchTableView.tableFooterView = UIView()
     }
 }

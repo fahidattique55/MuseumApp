@@ -8,11 +8,11 @@
 import Foundation
 
 struct Constituent: Codable {
-    var constituentID: Int
-    var role: String
-    var name: String
-    var constituentULAN_URL: String
-    var constituentWikidata_URL: String
-    var gender: String
+    var constituentID: Int?
+    var role: String?
+    var name: String?
+    var constituentULAN_URL: String?
+    var constituentWikidata_URL: String?
+    var gender: String?
 }
 

@@ -25,7 +25,8 @@ extension UIStoryboardType {
 
 enum Story: UIStoryboardType {
     
-    case searchObject
+    case searchObject,
+         objectDetails
     
     var board: UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
@@ -35,6 +36,8 @@ enum Story: UIStoryboardType {
         switch self {
         case .searchObject:
             return "SearchObjects"
+        case .objectDetails:
+            return "ObjectDetails"
         }
     }
 }

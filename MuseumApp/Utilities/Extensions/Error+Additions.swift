@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum MAError: Error {
+enum MAError: LocalizedError {
 
     case invalidJSONResponse,
          jsonFileMissing(String)
 
-    var localizedDescription: String {
+    var errorDescription: String? {
         switch self {
         case .invalidJSONResponse:
             return "Unexpected JSON response."

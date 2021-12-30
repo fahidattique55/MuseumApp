@@ -28,7 +28,15 @@ class AppCoordinator: CoordinatorType {
             let viewModel = SearchObjectsViewModel(apiService: apiService)
             var searchObjectsVC = Story.searchObject.loadViewController(type: SearchObjectsViewController.self)
             searchObjectsVC.bind(to: viewModel)
-            return TransitionData(controller: searchObjectsVC, type: .rootWindow)
+            let navVC = UINavigationController(rootViewController: searchObjectsVC)
+            return TransitionData(controller: navVC, type: .rootWindow)
+            
+        case .objectDetails(let object):
+            let apiService = MuseumObjectsAPIService(manager: NetworkManager.default)
+            let viewModel = ObjectDetailsViewModel(apiService: apiService, artObject: object)
+            var objectDetailsVC = Story.objectDetails.loadViewController(type: ObjectDetailsViewController.self)
+            objectDetailsVC.bind(to: viewModel)
+            return TransitionData(controller: objectDetailsVC, type: .push(TransitionOptions.defaultOptions))
         }
     }
 }

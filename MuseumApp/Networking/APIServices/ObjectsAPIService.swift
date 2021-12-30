@@ -46,7 +46,8 @@ class MuseumObjectsAPIService: MuseumObjectAPIs {
             guard let _ = self else { return }
             switch response {
             case .success(let data):
-                if let json = data.json, let objectIDs = json["objectIDs"] as? [Int] {
+                if let json = data.json {
+                    let objectIDs = (json["objectIDs"] as? [Int]) ?? [Int]()
                     result(.success(objectIDs))
                 }
                 else {

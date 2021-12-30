@@ -8,8 +8,8 @@
 import Foundation
 
 struct Tag: Codable {
-    var term: String
-    var AAT_URL: String
-    var Wikidata_URL: String
+    var term: String?
+    var AAT_URL: String?
+    var Wikidata_URL: String?
 }
 

@@ -8,14 +8,14 @@
 import Foundation
 
 struct Measurement: Codable {
-    var elementName: String
+    var elementName: String?
     var elementDescription: String?
-    var elementMeasurements: ElementMeasurement
+    var elementMeasurements: ElementMeasurement?
 }
 
 struct ElementMeasurement: Codable {
-    var Height: Double
-    var Width: Double
+    var Height: Double?
+    var Width: Double?
 }
 
 

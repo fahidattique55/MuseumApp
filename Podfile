@@ -13,6 +13,7 @@ target 'MuseumApp' do
   pod 'Alamofire'
   pod 'DZNEmptyDataSet'
   pod 'Kingfisher', '~> 7.0'
+  pod 'NVActivityIndicatorView', '4.8.0'
 
   target 'MuseumAppTests' do
     inherit! :search_paths

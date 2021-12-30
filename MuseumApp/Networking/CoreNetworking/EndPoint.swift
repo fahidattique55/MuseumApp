@@ -19,7 +19,7 @@ enum Endpoint: URLDirectable {
             url = "search"
             break
         case .objectDetails(let id):
-            url = "objects/[\(id)]"
+            url = "objects/\(id)"
             break
         }
         return NetworkManager.baseURL + "/" + url

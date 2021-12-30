@@ -32,6 +32,7 @@ enum TransitionType {
 
 enum Transition {
     case
-    searchObject
+    searchObject,
+    objectDetails(ArtObject)
 }
 

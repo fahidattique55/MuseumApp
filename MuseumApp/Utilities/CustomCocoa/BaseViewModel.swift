@@ -23,7 +23,7 @@ protocol BaseViewModelOutputType {
 
 fileprivate typealias BaseViewModelProtocols = BaseViewModelType & BaseViewModelInputType & BaseViewModelOutputType
 
-class BaseViewModel: BaseViewModelProtocols {
+class BaseViewModel: NSObject, BaseViewModelProtocols {
     
     // MARK: - ModelType
     var baseInputs: BaseViewModelInputType { return self }
@@ -61,8 +61,10 @@ extension BindableType where Self: UIViewController {
             .subscribe(onNext: { [weak self] showHud in
                 guard let self = self else { return }
                 if showHud {
+                    self.showHUD()
                 }
                 else {
+                    self.hideHUD()
                 }
         }).disposed(by: disposeBag)
         

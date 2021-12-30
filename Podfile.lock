@@ -3,6 +3,9 @@ PODS:
   - Differentiator (5.0.0)
   - DZNEmptyDataSet (1.8.1)
   - Kingfisher (7.0.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -18,6 +21,7 @@ DEPENDENCIES:
   - Alamofire
   - DZNEmptyDataSet
   - Kingfisher (~> 7.0)
+  - NVActivityIndicatorView (= 4.8.0)
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -28,6 +32,7 @@ SPEC REPOS:
     - Differentiator
     - DZNEmptyDataSet
     - Kingfisher
+    - NVActivityIndicatorView
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -38,11 +43,12 @@ SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: 93d4898bb960451568634b40e61901d08381385c
+PODFILE CHECKSUM: b3b4c623e592090b1c663b4f7e0a4174ea4c4f3e
 
 COCOAPODS: 1.11.2
