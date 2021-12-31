@@ -130,4 +130,9 @@ extension SearchObjectsViewModel : DZNEmptyDataSetDelegate {
     func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
+
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        let topAreaInsets = UIDevice.safeAreaInsetsTop
+        return -(topAreaInsets)
+    }
 }
