@@ -36,7 +36,6 @@ class BaseViewModel: NSObject, BaseViewModelProtocols {
     var error: PublishSubject<Error> = PublishSubject<Error>()
 }
 
-
 protocol BindableType {
     associatedtype ViewModelType
     var viewModel: ViewModelType! { get set }

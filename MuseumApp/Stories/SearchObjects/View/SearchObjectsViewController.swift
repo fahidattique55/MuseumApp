@@ -37,6 +37,7 @@ class SearchObjectsViewController: BaseViewController, BindableType {
         searchTableView.rowHeight = UITableView.automaticDimension
         searchTableView.emptyDataSetSource = viewModel
         searchTableView.emptyDataSetDelegate = viewModel
+        searchBar.becomeFirstResponder()
     }
     
     func bindViewModel() {
@@ -56,14 +57,15 @@ class SearchObjectsViewController: BaseViewController, BindableType {
             }.disposed(by: disposeBag)
         
         // Bind didSelect of tableview
-        searchTableView.rx.modelSelected(Int.self)
-            .subscribe(onNext: { [weak self] model in
-                guard let self = self else { return }
-                self.viewModel.inputs.itemSelected(objectID: model)
-            }).disposed(by: disposeBag)
+        searchTableView.rx.itemSelected
+          .subscribe(onNext: { [weak self] indexPath in
+              guard let self = self else { return }
+              self.searchTableView.deselectRow(at: indexPath, animated: true)
+              self.viewModel.inputs.itemSelected(at: indexPath.row)
+          }).disposed(by: disposeBag)
         
         // Bind search results and tableview
-        viewModel.outputs.searchResults.asObservable()
+        viewModel.outputs.searchResults
             .bind(to: searchTableView.rx.items(cellIdentifier: SearchResultTableViewCell.identifier, cellType: SearchResultTableViewCell.self)) { index, element, cell in
                 cell.objectIDLabel.text = "\(element)"
         }.disposed(by: disposeBag)

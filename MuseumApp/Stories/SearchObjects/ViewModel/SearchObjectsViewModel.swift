@@ -12,7 +12,7 @@ import DZNEmptyDataSet
 
 protocol SearchObjectsViewModelInputs {
     func searchObjects(searchText: String)
-    func itemSelected(objectID: Int)
+    func itemSelected(at index: Int)
 }
 
 protocol SearchObjectsViewModelOutputs {
@@ -35,7 +35,9 @@ class SearchObjectsViewModel: BaseViewModel, SearchObjectsViewModelProtocols {
     
     // MARK: - Input
     
-    func itemSelected(objectID: Int) {
+    func itemSelected(at index: Int) {
+        guard let objectIDs = try? searchResults.value() else { return }
+        guard let objectID = objectIDs[safe: index] else { return }
         self.baseOutputs.showHud.onNext(true)
         apiService.getDetails(objectID: objectID, result: { [weak self] result in
             guard let self = self else { return }
@@ -59,7 +61,9 @@ class SearchObjectsViewModel: BaseViewModel, SearchObjectsViewModelProtocols {
         }
         self.canShowNoResultsFound = true
         self.baseOutputs.showHud.onNext(true)
-        let params = ["q":searchText]
+        var params = [String:Any]()
+        params["q"] = searchText
+        params["hasImages"] = true
         apiService.searchObjectIDs(params: params) { [weak self] result in
             guard let self = self else { return }
             self.baseOutputs.showHud.onNext(false)
@@ -80,12 +84,12 @@ class SearchObjectsViewModel: BaseViewModel, SearchObjectsViewModelProtocols {
 
                               
     // MARK: - Properties
-    private var apiService: MuseumObjectsAPIService!
+    private var apiService: MuseumObjectAPIs!
     private var canShowNoResultsFound = false
     private var minimumCharactersToTriggerSearch = 3
 
     // MARK: - Init
-    init(apiService: MuseumObjectsAPIService) {
+    init(apiService: MuseumObjectAPIs) {
         self.apiService = apiService
     }
 }

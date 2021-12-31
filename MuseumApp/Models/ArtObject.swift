@@ -65,4 +65,15 @@ struct ArtObject: Codable {
     var constituents: [Constituent]?
     var measurements: [Measurement]?
     var tags: [Tag]?
+    
+    var allImages: [String] {
+        var images = [String]()
+        if let primaryImage = self.primaryImage {
+            images.append(primaryImage)
+        }
+        if let additionalImages = self.additionalImages {
+            images.append(contentsOf: additionalImages)
+        }
+        return images
+    }
 }
