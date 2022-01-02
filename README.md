@@ -86,8 +86,8 @@ Please check pod file for dependencies.
 
 ## Application Modules
 
-- [Search Art Objects](#Search Arts)
-- [Object Details](#Art Details)
+- [Search Art Objects](#Search-Arts)
+- [Object Details](#Art-Details)
 
 
 
