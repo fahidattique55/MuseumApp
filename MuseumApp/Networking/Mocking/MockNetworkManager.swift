@@ -14,7 +14,7 @@ protocol LocalJsonFileReadable {
 
 extension LocalJsonFileReadable {
     func getData(jsonFileName: String) -> Data? {
-        if let path = Bundle.main.path(forResource: "jsonFileName", ofType: "json") {
+        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
             let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             return data
         }
@@ -23,6 +23,8 @@ extension LocalJsonFileReadable {
 }
 
 class MockNetworkManager: Requestable, LocalJsonFileReadable {
+    static let shared = MockNetworkManager()
+    private init() {}
     static var baseURL: String { return "Mocking" }
     func request(api: API, result: @escaping APIResultType) -> DataRequest? {
         let jsonFileName = api.endPoint.mockFileName

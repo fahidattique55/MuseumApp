@@ -80,8 +80,8 @@ class ObjectDetailsViewModel: BaseViewModel, ObjectDetailsViewModelProtocols {
     }
     
     // MARK: - Properties
-    private var apiService: MuseumObjectAPIs!
-    private var object: ArtObject!
+    var apiService: MuseumObjectAPIs!
+    var object: ArtObject!
 
     // MARK: - Init
     init(apiService: MuseumObjectAPIs, artObject: ArtObject) {

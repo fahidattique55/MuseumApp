@@ -15,7 +15,6 @@
 		2D5726C427701C5E005FC90E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5726C327701C5E005FC90E /* AppDelegate.swift */; };
 		2D5726CD27701C60005FC90E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D5726CC27701C60005FC90E /* Assets.xcassets */; };
 		2D5726D027701C60005FC90E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5726CE27701C60005FC90E /* LaunchScreen.storyboard */; };
-		2D5726DB27701C61005FC90E /* MuseumAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5726DA27701C61005FC90E /* MuseumAppTests.swift */; };
 		2D5726E527701C61005FC90E /* MuseumAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5726E427701C61005FC90E /* MuseumAppUITests.swift */; };
 		2D5726E727701C61005FC90E /* MuseumAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5726E627701C61005FC90E /* MuseumAppUITestsLaunchTests.swift */; };
 		2D5726FC27705A0A005FC90E /* SearchObjects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5726FB27705A0A005FC90E /* SearchObjects.storyboard */; };
@@ -42,6 +41,9 @@
 		2D6D5E71277B41B300BD96CF /* ObjectDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D5E6F277B41B300BD96CF /* ObjectDetails.json */; };
 		2D6D5E72277B41B300BD96CF /* SearchObjects.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D5E70277B41B300BD96CF /* SearchObjects.json */; };
 		2D6D5E76277B473300BD96CF /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D5E75277B473300BD96CF /* MockNetworkManager.swift */; };
+		2D8B9BC827813A6B00ED48AB /* SearchObjectsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8B9BC727813A6B00ED48AB /* SearchObjectsTestCases.swift */; };
+		2D8B9BCA27813A8300ED48AB /* ObjectDetailsTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8B9BC927813A8300ED48AB /* ObjectDetailsTestCases.swift */; };
+		2D8B9BCE278152EB00ED48AB /* MockManagerTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8B9BCD278152EB00ED48AB /* MockManagerTestCases.swift */; };
 		2DD25162277C0E150018820C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD25161277C0E150018820C /* BaseViewController.swift */; };
 		2DD25164277C482E0018820C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD25163277C482E0018820C /* BaseViewModel.swift */; };
 		2DD25166277C81480018820C /* UIAlertController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD25165277C81480018820C /* UIAlertController+Additions.swift */; };
@@ -88,7 +90,6 @@
 		2D5726CF27701C60005FC90E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5726D127701C60005FC90E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D5726D627701C61005FC90E /* MuseumAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D5726DA27701C61005FC90E /* MuseumAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumAppTests.swift; sourceTree = "<group>"; };
 		2D5726E027701C61005FC90E /* MuseumAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5726E427701C61005FC90E /* MuseumAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumAppUITests.swift; sourceTree = "<group>"; };
 		2D5726E627701C61005FC90E /* MuseumAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -116,6 +117,9 @@
 		2D6D5E6F277B41B300BD96CF /* ObjectDetails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ObjectDetails.json; sourceTree = "<group>"; };
 		2D6D5E70277B41B300BD96CF /* SearchObjects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchObjects.json; sourceTree = "<group>"; };
 		2D6D5E75277B473300BD96CF /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		2D8B9BC727813A6B00ED48AB /* SearchObjectsTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchObjectsTestCases.swift; sourceTree = "<group>"; };
+		2D8B9BC927813A8300ED48AB /* ObjectDetailsTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetailsTestCases.swift; sourceTree = "<group>"; };
+		2D8B9BCD278152EB00ED48AB /* MockManagerTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManagerTestCases.swift; sourceTree = "<group>"; };
 		2DD25161277C0E150018820C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2DD25163277C482E0018820C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		2DD25165277C81480018820C /* UIAlertController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Additions.swift"; sourceTree = "<group>"; };
@@ -246,7 +250,9 @@
 		2D5726D927701C61005FC90E /* MuseumAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				2D5726DA27701C61005FC90E /* MuseumAppTests.swift */,
+				2D8B9BC727813A6B00ED48AB /* SearchObjectsTestCases.swift */,
+				2D8B9BC927813A8300ED48AB /* ObjectDetailsTestCases.swift */,
+				2D8B9BCD278152EB00ED48AB /* MockManagerTestCases.swift */,
 			);
 			path = MuseumAppTests;
 			sourceTree = "<group>";
@@ -776,7 +782,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D5726DB27701C61005FC90E /* MuseumAppTests.swift in Sources */,
+				2D8B9BCA27813A8300ED48AB /* ObjectDetailsTestCases.swift in Sources */,
+				2D8B9BCE278152EB00ED48AB /* MockManagerTestCases.swift in Sources */,
+				2D8B9BC827813A6B00ED48AB /* SearchObjectsTestCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,6 +1010,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 664343KK2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1027,6 +1036,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 664343KK2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1051,6 +1061,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 664343KK2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1074,6 +1085,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 664343KK2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

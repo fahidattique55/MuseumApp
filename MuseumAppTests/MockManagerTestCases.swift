@@ -1,14 +1,14 @@
 //
-//  MuseumAppTests.swift
+//  MockManagerTestCases.swift
 //  MuseumAppTests
 //
-//  Created by fahid on 20/12/2021.
+//  Created by fahid on 02/01/2022.
 //
 
 import XCTest
 @testable import MuseumApp
 
-class MuseumAppTests: XCTestCase {
+class MockManagerTestCases: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,9 +18,14 @@ class MuseumAppTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetDataFromLocalJSONFile() throws {
+        let data = MockNetworkManager.shared.getData(jsonFileName: Endpoint.searchObjects.mockFileName)
+        XCTAssertNotNil(data, "Data should not be nil from mock manager when called through endpoints")
+    }
+
+    func testGetDataFromLocalJSONFileError() throws {
+        let data = MockNetworkManager.shared.getData(jsonFileName: "No file")
+        XCTAssertNil(data)
     }
 
     func testPerformanceExample() throws {

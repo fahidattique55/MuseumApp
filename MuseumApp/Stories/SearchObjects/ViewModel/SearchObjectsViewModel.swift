@@ -17,7 +17,7 @@ protocol SearchObjectsViewModelInputs {
 
 protocol SearchObjectsViewModelOutputs {
     var searchResults: BehaviorSubject<[Int]> {get set}
-    var objectDetails: PublishSubject<ArtObject> {get set}
+    var objectDetails: BehaviorSubject<ArtObject?> {get set}
 }
 
 protocol SearchObjectsViewModelType: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
@@ -80,13 +80,21 @@ class SearchObjectsViewModel: BaseViewModel, SearchObjectsViewModelProtocols {
 
     // MARK: - Outputs
     var searchResults = BehaviorSubject<[Int]>(value: [])
-    var objectDetails = PublishSubject<ArtObject>()
+    var objectDetails = BehaviorSubject<ArtObject?>(value: nil)
 
                               
     // MARK: - Properties
-    private var apiService: MuseumObjectAPIs!
-    private var canShowNoResultsFound = false
-    private var minimumCharactersToTriggerSearch = 3
+    var apiService: MuseumObjectAPIs!
+    var canShowNoResultsFound = false
+    var minimumCharactersToTriggerSearch = 3
+    var emptyStateMessage: String {
+        if canShowNoResultsFound {
+            return "No Search Results Found."
+        }
+        else {
+            return "Minimum \(minimumCharactersToTriggerSearch) characters required to start searching."
+        }
+    }
 
     // MARK: - Init
     init(apiService: MuseumObjectAPIs) {
@@ -101,15 +109,7 @@ extension SearchObjectsViewModel: DZNEmptyDataSetSource {
         paragraph.lineBreakMode = .byWordWrapping
         paragraph.alignment = .center
         let attributes = [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.black, NSAttributedString.Key.paragraphStyle : paragraph]
-        var message = ""
-        if canShowNoResultsFound {
-            message = "No Search Results Found."
-        }
-        else {
-            message = "Minimum \(minimumCharactersToTriggerSearch) characters required to start searching."
-        }
-        
-        return NSAttributedString(string: message, attributes: attributes as [NSAttributedString.Key : Any])
+        return NSAttributedString(string: self.emptyStateMessage, attributes: attributes as [NSAttributedString.Key : Any])
     }
     
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {

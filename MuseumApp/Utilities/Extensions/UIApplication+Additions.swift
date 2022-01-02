@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIApplication {
-    var keyWindow: UIWindow? {
+    var keyWindowLatest: UIWindow? {
         // Get connected scenes
         return UIApplication.shared.connectedScenes
             // Keep only active scenes, onscreen and visible to the user

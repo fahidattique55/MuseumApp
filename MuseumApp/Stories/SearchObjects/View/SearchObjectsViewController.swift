@@ -47,6 +47,7 @@ class SearchObjectsViewController: BaseViewController, BindableType {
             .orEmpty
             .debounce(.milliseconds(700), scheduler: MainScheduler.instance) // Wait for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
+            .filter{!$0.isEmpty}
             .subscribe(onNext: { query in
                 self.viewModel.inputs.searchObjects(searchText: query)
             }).disposed(by: disposeBag)
@@ -74,8 +75,9 @@ class SearchObjectsViewController: BaseViewController, BindableType {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] artObject in
                 guard let self = self else { return }
+                guard let object = artObject else { return }
                 let appCoordinator = AppCoordinator(with: self.navigationController)
-                appCoordinator.performTransition(.objectDetails(artObject))
+                appCoordinator.performTransition(.objectDetails(object))
             }).disposed(by: disposeBag)
 
         searchTableView.tableFooterView = UIView()
