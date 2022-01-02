@@ -237,6 +237,7 @@
 		2D5726C227701C5E005FC90E /* MuseumApp */ = {
 			isa = PBXGroup;
 			children = (
+				2D8B9BCF2781622900ED48AB /* README.md */,
 				2D5726F327702583005FC90E /* Application */,
 				2D5726F7277058E9005FC90E /* Utilities */,
 				2D6D5E4C277AD0C100BD96CF /* Networking */,
@@ -273,7 +274,6 @@
 			children = (
 				2D5726C327701C5E005FC90E /* AppDelegate.swift */,
 				2D5726D127701C60005FC90E /* Info.plist */,
-				2D8B9BCF2781622900ED48AB /* README.md */,
 			);
 			path = Application;
 			sourceTree = "<group>";
