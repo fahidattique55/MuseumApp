@@ -47,7 +47,6 @@ class SearchObjectsViewController: BaseViewController, BindableType {
             .orEmpty
             .debounce(.milliseconds(700), scheduler: MainScheduler.instance) // Wait for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
-            .filter{!$0.isEmpty}
             .subscribe(onNext: { query in
                 self.viewModel.inputs.searchObjects(searchText: query)
             }).disposed(by: disposeBag)

@@ -26,7 +26,7 @@ class SearchObjectsTestCases: XCTestCase {
     }
 
     override func tearDown() {
-        controller.viewModel = nil
+        viewModel = nil
         controller = nil
     }
 
