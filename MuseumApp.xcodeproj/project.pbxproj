@@ -58,6 +58,10 @@
 		2DD81C5E2771D93D001237F8 /* UIStoryboard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD81C5D2771D93D001237F8 /* UIStoryboard+Additions.swift */; };
 		2DD81C602771DB21001237F8 /* NSObjectProtocol+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD81C5F2771DB21001237F8 /* NSObjectProtocol+Additions.swift */; };
 		2DD81C642772263E001237F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD81C632772263E001237F8 /* Transition.swift */; };
+		2DF4F9E127A14C24009D9E3B /* ArtLargeImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4F9E027A14C24009D9E3B /* ArtLargeImageViewModel.swift */; };
+		2DF4F9E327A14C58009D9E3B /* ArtLargeImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DF4F9E227A14C58009D9E3B /* ArtLargeImage.storyboard */; };
+		2DF4F9E527A14C63009D9E3B /* ArtLargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4F9E427A14C63009D9E3B /* ArtLargeImageViewController.swift */; };
+		2DF4F9E727A15332009D9E3B /* ArtLargeImageTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4F9E627A15332009D9E3B /* ArtLargeImageTestCases.swift */; };
 		E007A1CE309D60D4EEDBA87F /* Pods_MuseumAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5F2F9E2EABAF5BC5BE9A0A /* Pods_MuseumAppTests.framework */; };
 		E77EAFF574A2F0C8697FA58E /* Pods_MuseumApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D00582DFC48B5269659035 /* Pods_MuseumApp.framework */; };
 /* End PBXBuildFile section */
@@ -135,6 +139,10 @@
 		2DD81C5D2771D93D001237F8 /* UIStoryboard+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additions.swift"; sourceTree = "<group>"; };
 		2DD81C5F2771DB21001237F8 /* NSObjectProtocol+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Additions.swift"; sourceTree = "<group>"; };
 		2DD81C632772263E001237F8 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		2DF4F9E027A14C24009D9E3B /* ArtLargeImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtLargeImageViewModel.swift; sourceTree = "<group>"; };
+		2DF4F9E227A14C58009D9E3B /* ArtLargeImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArtLargeImage.storyboard; sourceTree = "<group>"; };
+		2DF4F9E427A14C63009D9E3B /* ArtLargeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtLargeImageViewController.swift; sourceTree = "<group>"; };
+		2DF4F9E627A15332009D9E3B /* ArtLargeImageTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtLargeImageTestCases.swift; sourceTree = "<group>"; };
 		5A5C6275216514E665311DD2 /* Pods-MuseumApp-MuseumAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseumApp-MuseumAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MuseumApp-MuseumAppUITests/Pods-MuseumApp-MuseumAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6EBDF792448EB219DF6ABCB2 /* Pods-MuseumAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuseumAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MuseumAppTests/Pods-MuseumAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87D00582DFC48B5269659035 /* Pods_MuseumApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuseumApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +264,7 @@
 				2D8B9BC727813A6B00ED48AB /* SearchObjectsTestCases.swift */,
 				2D8B9BC927813A8300ED48AB /* ObjectDetailsTestCases.swift */,
 				2D8B9BCD278152EB00ED48AB /* MockManagerTestCases.swift */,
+				2DF4F9E627A15332009D9E3B /* ArtLargeImageTestCases.swift */,
 			);
 			path = MuseumAppTests;
 			sourceTree = "<group>";
@@ -300,6 +309,7 @@
 		2D5726F627702592005FC90E /* Stories */ = {
 			isa = PBXGroup;
 			children = (
+				2DF4F9DD27A14A96009D9E3B /* ArtLargeImage */,
 				2D04217E277D6E2F0012C208 /* ObjectDetails */,
 				2D5726FA27705968005FC90E /* SearchObjects */,
 				2D5726F92770595C005FC90E /* Launch */,
@@ -488,6 +498,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2DF4F9DD27A14A96009D9E3B /* ArtLargeImage */ = {
+			isa = PBXGroup;
+			children = (
+				2DF4F9DE27A14C09009D9E3B /* View */,
+				2DF4F9DF27A14C0E009D9E3B /* ViewModel */,
+			);
+			path = ArtLargeImage;
+			sourceTree = "<group>";
+		};
+		2DF4F9DE27A14C09009D9E3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DF4F9E427A14C63009D9E3B /* ArtLargeImageViewController.swift */,
+				2DF4F9E227A14C58009D9E3B /* ArtLargeImage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2DF4F9DF27A14C0E009D9E3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DF4F9E027A14C24009D9E3B /* ArtLargeImageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A2D20CC37BA4CA40FECEF87B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +648,7 @@
 				2D8B9BD02781622900ED48AB /* README.md in Resources */,
 				2D5726D027701C60005FC90E /* LaunchScreen.storyboard in Resources */,
 				2D5726CD27701C60005FC90E /* Assets.xcassets in Resources */,
+				2DF4F9E327A14C58009D9E3B /* ArtLargeImage.storyboard in Resources */,
 				2D5726FC27705A0A005FC90E /* SearchObjects.storyboard in Resources */,
 				2D6D5E71277B41B300BD96CF /* ObjectDetails.json in Resources */,
 				2D6D5E72277B41B300BD96CF /* SearchObjects.json in Resources */,
@@ -744,6 +781,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF4F9E127A14C24009D9E3B /* ArtLargeImageViewModel.swift in Sources */,
 				2D581E5D277EA6E500B0F6DC /* ObjectDetailsSimpleTableViewCell.swift in Sources */,
 				2D6D5E51277AD0F600BD96CF /* NetworkManager.swift in Sources */,
 				2D6D5E6E277B401B00BD96CF /* EndPoint+Mocking.swift in Sources */,
@@ -764,6 +802,7 @@
 				2D6D5E53277AD0F600BD96CF /* EndPoint.swift in Sources */,
 				2D042186277D7EF00012C208 /* ObjectDetailsViewController.swift in Sources */,
 				2D6D5E52277AD0F600BD96CF /* API.swift in Sources */,
+				2DF4F9E527A14C63009D9E3B /* ArtLargeImageViewController.swift in Sources */,
 				2DD81C602771DB21001237F8 /* NSObjectProtocol+Additions.swift in Sources */,
 				2D6D5E5C277B155A00BD96CF /* ArtObject.swift in Sources */,
 				2D6D5E58277AFF0A00BD96CF /* Error+Additions.swift in Sources */,
@@ -789,6 +828,7 @@
 				2D8B9BCA27813A8300ED48AB /* ObjectDetailsTestCases.swift in Sources */,
 				2D8B9BCE278152EB00ED48AB /* MockManagerTestCases.swift in Sources */,
 				2D8B9BC827813A6B00ED48AB /* SearchObjectsTestCases.swift in Sources */,
+				2DF4F9E727A15332009D9E3B /* ArtLargeImageTestCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

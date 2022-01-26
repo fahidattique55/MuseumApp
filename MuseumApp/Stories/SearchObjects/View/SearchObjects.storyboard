@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,39 +17,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-Uo-j36">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebe-af-nw4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search here..." translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ny-RAE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="9yS-Qf-FRx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <searchBar contentMode="redraw" placeholder="Search here..." translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ny-RAE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                            <scopeButtonTitles>
-                                                <string>Title</string>
-                                                <string>Title</string>
-                                            </scopeButtonTitles>
-                                        </searchBar>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="dlR-Ny-RAE" secondAttribute="trailing" id="0CR-wE-DIX"/>
-                                        <constraint firstItem="dlR-Ny-RAE" firstAttribute="leading" secondItem="9yS-Qf-FRx" secondAttribute="leading" id="a9K-AL-KtM"/>
-                                        <constraint firstAttribute="bottom" secondItem="dlR-Ny-RAE" secondAttribute="bottom" id="atE-hp-tq8"/>
-                                        <constraint firstItem="dlR-Ny-RAE" firstAttribute="top" secondItem="9yS-Qf-FRx" secondAttribute="top" id="gG4-lW-WNy"/>
-                                    </constraints>
-                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="78F-iS-BnQ"/>
+                                    <constraint firstItem="dlR-Ny-RAE" firstAttribute="top" secondItem="Ebe-af-nw4" secondAttribute="top" id="F0t-Wb-MHV"/>
+                                    <constraint firstAttribute="bottom" secondItem="dlR-Ny-RAE" secondAttribute="bottom" id="Hy6-gS-85J"/>
+                                    <constraint firstAttribute="trailing" secondItem="dlR-Ny-RAE" secondAttribute="trailing" id="thE-Cb-p3J"/>
+                                    <constraint firstItem="dlR-Ny-RAE" firstAttribute="leading" secondItem="Ebe-af-nw4" secondAttribute="leading" id="z3z-V9-fzd"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-Uo-j36">
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LrL-Uo-j36" secondAttribute="bottom" id="7qx-Vd-UNU"/>
-                            <constraint firstItem="LrL-Uo-j36" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="TND-KC-oLH"/>
+                            <constraint firstItem="Ebe-af-nw4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="T0y-xl-w2O"/>
                             <constraint firstItem="LrL-Uo-j36" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="adr-gL-hBk"/>
+                            <constraint firstItem="LrL-Uo-j36" firstAttribute="top" secondItem="Ebe-af-nw4" secondAttribute="bottom" id="cgz-Y7-q9b"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ebe-af-nw4" secondAttribute="trailing" id="j9W-UB-bFR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LrL-Uo-j36" secondAttribute="trailing" id="nzD-4f-fBc"/>
+                            <constraint firstItem="Ebe-af-nw4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tbj-Ew-Sah"/>
                         </constraints>
                     </view>
                     <connections>

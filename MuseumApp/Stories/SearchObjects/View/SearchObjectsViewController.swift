@@ -29,6 +29,11 @@ class SearchObjectsViewController: BaseViewController, BindableType {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchBar.becomeFirstResponder()
+    }
+    
     override func configureView() {
         super.configureView()
         self.title = "Search Museum Arts"
@@ -37,7 +42,6 @@ class SearchObjectsViewController: BaseViewController, BindableType {
         searchTableView.rowHeight = UITableView.automaticDimension
         searchTableView.emptyDataSetSource = viewModel
         searchTableView.emptyDataSetDelegate = viewModel
-        searchBar.becomeFirstResponder()
     }
     
     func bindViewModel() {
@@ -47,12 +51,14 @@ class SearchObjectsViewController: BaseViewController, BindableType {
             .orEmpty
             .debounce(.milliseconds(700), scheduler: MainScheduler.instance) // Wait for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
-            .subscribe(onNext: { query in
+            .subscribe(onNext: { [weak self] query in
+                guard let self = self else { return }
                 self.viewModel.inputs.searchObjects(searchText: query)
             }).disposed(by: disposeBag)
 
         searchBar.searchTextField.rx
-            .controlEvent([.editingDidEndOnExit]).subscribe { _ in
+            .controlEvent([.editingDidEndOnExit]).subscribe { [weak self] _ in
+                guard let self = self else { return }
                 self.endEditing()
             }.disposed(by: disposeBag)
         
@@ -60,13 +66,15 @@ class SearchObjectsViewController: BaseViewController, BindableType {
         searchTableView.rx.itemSelected
           .subscribe(onNext: { [weak self] indexPath in
               guard let self = self else { return }
+              self.endEditing()
               self.searchTableView.deselectRow(at: indexPath, animated: true)
               self.viewModel.inputs.itemSelected(at: indexPath.row)
           }).disposed(by: disposeBag)
         
         // Bind search results and tableview
         viewModel.outputs.searchResults
-            .bind(to: searchTableView.rx.items(cellIdentifier: SearchResultTableViewCell.identifier, cellType: SearchResultTableViewCell.self)) { index, element, cell in
+            .bind(to: searchTableView.rx.items(cellIdentifier: SearchResultTableViewCell.identifier, cellType: SearchResultTableViewCell.self)) { [weak self] index, element, cell in
+                guard let _ = self else { return }
                 cell.objectIDLabel.text = "\(element)"
         }.disposed(by: disposeBag)
             

@@ -30,6 +30,10 @@ class ObjectDetailsViewController: BaseViewController, BindableType {
         // Do any additional setup after loading the view.
     }
     
+    deinit {
+        print("deinit Called")
+    }
+    
     override func configureView() {
         super.configureView()
         self.title = "Details"
@@ -49,17 +53,26 @@ class ObjectDetailsViewController: BaseViewController, BindableType {
                 cell.configureImage(url: element)
         }.disposed(by: disposeBag)
 
+        imagesCollectionView.rx.itemSelected.subscribe(onNext:{ [weak self] indexPath in
+            guard let self = self else { return }
+            guard let imgURL = self.viewModel.outputs.primaryLargeImage else { return }
+            print("primaryLargeImage: \(imgURL)")
+            let appCoordinator = AppCoordinator(with: self.navigationController)
+            appCoordinator.performTransition(.artLargeImage(imgURL))
+        }).disposed(by: disposeBag)
+        
         imagesCollectionView.rx.contentOffset.subscribe { [weak self] value in
             guard let self = self else { return }
             guard let contentOffset = value.element else { return }
             self.imagesPageControl.currentPage = Int(contentOffset.x) / Int(self.imagesCollectionView.frame.width)
         }.disposed(by: disposeBag)
-        
+
         imagesCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
 
         // Binding tableview
         viewModel.outputs.tableViewDataSource
-            .bind(to: detailsTableView.rx.items(cellIdentifier: ObjectDetailsSimpleTableViewCell.identifier, cellType: ObjectDetailsSimpleTableViewCell.self)) { index, element, cell in
+            .bind(to: detailsTableView.rx.items(cellIdentifier: ObjectDetailsSimpleTableViewCell.identifier, cellType: ObjectDetailsSimpleTableViewCell.self)) { [weak self] index, element, cell in
+                guard let self = self else { return }
                 let data = self.viewModel.outputs.dataForRowType(element)
                 cell.headingLabel.text = data.0
                 if let details = data.1 {

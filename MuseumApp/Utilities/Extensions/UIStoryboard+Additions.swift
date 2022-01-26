@@ -26,7 +26,8 @@ extension UIStoryboardType {
 enum Story: UIStoryboardType {
     
     case searchObject,
-         objectDetails
+         objectDetails,
+         artLargeImage
     
     var board: UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
@@ -38,6 +39,8 @@ enum Story: UIStoryboardType {
             return "SearchObjects"
         case .objectDetails:
             return "ObjectDetails"
+        case .artLargeImage:
+            return "ArtLargeImage"
         }
     }
 }

@@ -17,6 +17,6 @@ class ObjectImagesCollectionViewCell: UICollectionViewCell {
     }
     
     func configureImage(url: String) {
-        objectImageView.setImage(url: url, placeholder: UIImage(named: "placeholderLarge"), success: nil)
+        objectImageView.setImage(url: url, success: nil)
     }
 }

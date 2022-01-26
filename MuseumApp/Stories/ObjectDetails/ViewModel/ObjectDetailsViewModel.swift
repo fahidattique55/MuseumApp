@@ -30,6 +30,7 @@ protocol ObjectDetailsViewModelOutputs {
     var imagesDataSource: BehaviorSubject<[String]>! {get set}
     var totalImagesCount: Int {get}
     func dataForRowType(_ rowType: ObjectDetailsTableViewRowType) -> (String,String?)
+    var primaryLargeImage: String? {get}
 }
 
 protocol ObjectDetailsViewModelType {
@@ -50,6 +51,9 @@ class ObjectDetailsViewModel: BaseViewModel, ObjectDetailsViewModelProtocols {
     // MARK: - Outputs
     var tableViewDataSource: BehaviorSubject<[ObjectDetailsTableViewRowType]>!
     var imagesDataSource: BehaviorSubject<[String]>!
+    var primaryLargeImage: String? {
+        return object.primaryImage
+    }
     var totalImagesCount: Int {
         guard let count = try? imagesDataSource.value().count else { return 0 }
         return count

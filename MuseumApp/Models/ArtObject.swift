@@ -68,12 +68,15 @@ struct ArtObject: Codable {
     
     var allImages: [String] {
         var images = [String]()
-        if let primaryImage = self.primaryImage {
+        if let smallImage = self.primaryImageSmall {
+            images.append(smallImage)
+        }
+        else if let primaryImage = self.primaryImage {
             images.append(primaryImage)
         }
-        if let additionalImages = self.additionalImages {
-            images.append(contentsOf: additionalImages)
-        }
+//        if let additionalImages = self.additionalImages {
+//            images.append(contentsOf: additionalImages)
+//        }
         return images
     }
 }

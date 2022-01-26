@@ -11,7 +11,7 @@ import Kingfisher
 
 extension UIImageView {
 
-    func setImage(url: String?, placeholder: UIImage?, success: ((_ image: UIImage) -> Void)? = nil) {
+    func setImage(url: String?, placeholder: UIImage? = UIImage(named: "placeholderLarge"), success: ((_ image: UIImage) -> Void)? = nil) {
         guard let urlString = url, !urlString.isEmpty else { return }
         guard let imageURL = URL(string: urlString) else { return }
         self.kf.setImage(with: imageURL, placeholder: placeholder, options: [.transition(.fade(1))]) { result in

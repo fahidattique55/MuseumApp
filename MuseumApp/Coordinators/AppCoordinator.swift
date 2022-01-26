@@ -18,7 +18,8 @@ class AppCoordinator: CoordinatorType {
     
     func performTransition(_ transition: Transition) {
         let data = getTransitionData(transition)
-        tranist(to: data.controller, type: data.type)
+        guard let vc = data.controller else { return }
+        tranist(to: vc, type: data.type)
     }
     
     func getTransitionData(_ transition: Transition) -> TransitionData {
@@ -37,6 +38,12 @@ class AppCoordinator: CoordinatorType {
             var objectDetailsVC = Story.objectDetails.loadViewController(type: ObjectDetailsViewController.self)
             objectDetailsVC.bind(to: viewModel)
             return TransitionData(controller: objectDetailsVC, type: .push(TransitionOptions.defaultOptions))
+
+        case .artLargeImage(let imageURL):
+            let viewModel = ArtLargeImageViewModel(imageURL: imageURL)
+            var largeImageVC = Story.artLargeImage.loadViewController(type: ArtLargeImageViewController.self)
+            largeImageVC.bind(to: viewModel)
+            return TransitionData(controller: largeImageVC, type: .push(TransitionOptions.defaultOptions))
         }
     }
 }
