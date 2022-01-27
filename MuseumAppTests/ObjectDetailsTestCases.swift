@@ -57,7 +57,7 @@ class ObjectDetailsTestCases: XCTestCase {
     }
     
     func testTotalImagesCount() throws {
-        XCTAssertEqual(viewModel.totalImagesCount, 3, "Images count should be 3 as per local json file.")
+        XCTAssertEqual(viewModel.totalImagesCount, 1, "Images count should be 3 as per local json file.")
     }
 
     func testDataForRows() throws {
