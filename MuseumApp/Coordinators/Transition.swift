@@ -34,6 +34,7 @@ enum Transition {
     case
     searchObject,
     objectDetails(ArtObject),
-    artLargeImage(String)
+    artLargeImage(String),
+    igListKitTest
 }
 

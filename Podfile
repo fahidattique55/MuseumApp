@@ -14,7 +14,9 @@ target 'MuseumApp' do
   pod 'DZNEmptyDataSet'
   pod 'Kingfisher', '~> 7.0'
   pod 'NVActivityIndicatorView', '4.8.0'
-
+  pod 'IGListKit', '~> 4.0.0'
+  pod 'Action'
+  
   target 'MuseumAppTests' do
     inherit! :search_paths
     # Pods for testing

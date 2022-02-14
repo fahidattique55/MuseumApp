@@ -27,7 +27,8 @@ enum Story: UIStoryboardType {
     
     case searchObject,
          objectDetails,
-         artLargeImage
+         artLargeImage,
+         igListKitTest
     
     var board: UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
@@ -41,6 +42,8 @@ enum Story: UIStoryboardType {
             return "ObjectDetails"
         case .artLargeImage:
             return "ArtLargeImage"
+        case .igListKitTest:
+            return "IGListKitTest"
         }
     }
 }

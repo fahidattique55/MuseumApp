@@ -22,6 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func configureApp() {
         let appCoordinator = AppCoordinator(with: nil)
-        appCoordinator.performTransition(.searchObject)
+        appCoordinator.performTransition(.igListKitTest)
     }
 }

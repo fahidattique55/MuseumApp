@@ -44,6 +44,12 @@ class AppCoordinator: CoordinatorType {
             var largeImageVC = Story.artLargeImage.loadViewController(type: ArtLargeImageViewController.self)
             largeImageVC.bind(to: viewModel)
             return TransitionData(controller: largeImageVC, type: .push(TransitionOptions.defaultOptions))
+
+        case .igListKitTest:
+            let viewModel = IGListKitTestViewModel()
+            var testVC = Story.igListKitTest.loadViewController(type: IGListKitTestViewController.self)
+            testVC.bind(to: viewModel)
+            return TransitionData(controller: testVC, type: .rootWindow)
         }
     }
 }

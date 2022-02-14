@@ -1,7 +1,13 @@
 PODS:
+  - Action (5.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - Alamofire (5.4.4)
   - Differentiator (5.0.0)
   - DZNEmptyDataSet (1.8.1)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
   - Kingfisher (7.0.0)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
@@ -18,8 +24,10 @@ PODS:
   - RxSwift (6.2.0)
 
 DEPENDENCIES:
+  - Action
   - Alamofire
   - DZNEmptyDataSet
+  - IGListKit (~> 4.0.0)
   - Kingfisher (~> 7.0)
   - NVActivityIndicatorView (= 4.8.0)
   - RxCocoa
@@ -28,9 +36,12 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Action
     - Alamofire
     - Differentiator
     - DZNEmptyDataSet
+    - IGListDiffKit
+    - IGListKit
     - Kingfisher
     - NVActivityIndicatorView
     - RxCocoa
@@ -39,9 +50,12 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  Action: 47f1825511907b4fcd79dd7a7db9526c20f78018
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -49,6 +63,6 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: b3b4c623e592090b1c663b4f7e0a4174ea4c4f3e
+PODFILE CHECKSUM: f0514b77a48c84455029b6415e5810169035cae2
 
 COCOAPODS: 1.11.2
